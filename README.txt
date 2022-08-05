@@ -1,3 +1,2 @@
-pip install earthengine-api
-pip install geemap
-conda install -c conda-forge cartopy
+中技社 ai 大賽
+衛星影像索引系統
