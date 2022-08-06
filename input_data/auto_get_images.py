@@ -10,17 +10,6 @@ import csv
 import shutil
 geemap.ee_initialize()
 
-
-#先把舊檔案刪除 不用就註掉
-fileTest = "C:/Users/alalala/Downloads/dataset"
-try:
-    shutil.rmtree(fileTest)
-except OSError as e:
-    print(e)
-else:
-    print("File is deleted successfully")
-
-
 #抓圖函數
 def auto_get_image(lat,lon):
     #經緯度要到小數點後面一點 
@@ -35,7 +24,7 @@ def auto_get_image(lat,lon):
     end_year = 1986 #應該是2012 改1986測比較快
     years = ee.List.sequence(start_year, end_year)
 
-    #選圖片
+    #選圖片 每月選一張做為代表
     def get_best_image(year):
         start_date = ee.Date.fromYMD(year, 1, 1)
         end_date = ee.Date.fromYMD(year, 12, 31)
@@ -69,7 +58,6 @@ def auto_get_image(lat,lon):
     downloads_name = str(int(lon)) +","+ str(int(lat))
     downloads_path = "~/Downloads/dataset/" + downloads_name
 
-    #下載圖片 
     cartoee.get_image_collection_gif(
         ee_ic=collection,
         out_dir=os.path.expanduser(downloads_path),
@@ -84,6 +72,15 @@ def auto_get_image(lat,lon):
         file_format="png",
         verbose=True,
         )
+
+#先把舊檔案刪除 不用就註掉
+fileTest = "C:/Users/alalala/Downloads/dataset"
+try:
+    shutil.rmtree(fileTest)
+except OSError as e:
+    print(e)
+else:
+    print("File is deleted successfully")
 
 #讀取經緯度的csv檔案
 loaction_path = 'C:\git\中技社\input_data\lonlat.csv'
