@@ -73,7 +73,7 @@ def auto_get_image(lat,lon):
     downloads_name = str(int(lon)) +","+ str(int(lat))
     downloads_path = "~/Downloads/" + downloads_name
 
-    #下載圖片 要用再解註
+    #下載圖片 
     cartoee.get_image_collection_gif(
         ee_ic=collection,
         out_dir=os.path.expanduser(downloads_path),
