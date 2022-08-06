@@ -1,30 +1,35 @@
-import geemap
-import os
-import ee
-import matplotlib.pyplot as plt
+import os 
+import geemap 
+import ee 
+import matplotlib.pyplot as plt 
 from geemap import cartoee
 import cartopy.crs as ccrs
 from sqlalchemy import false, true
+import pandas as pd
+import csv
 geemap.ee_initialize()
 
-def auto_get_image(lon,lat):
+def auto_get_image(lat,lon):
         #經緯度要到小數點後面一點 
     lat = lat
     lon = lon
     square = 0.3
-
+    #print(lon,lat)
     #設定範圍
+
     yMin = lat - square
     xMin = lon - square
     yMax = lat + square
     xMax = lon + square
+
+    
     rectangle = ee.Geometry.Rectangle(
     [xMin, yMin, xMax, yMax]
     )
 
     #設定時間
     start_year = 1984
-    end_year = 2012
+    end_year = 1986#2012
     years = ee.List.sequence(start_year, end_year)
 
     #選圖片
@@ -84,8 +89,18 @@ def auto_get_image(lon,lat):
         verbose=True,
         )
 
-    print("finish")
+#讀取經緯度的csv檔案
+loaction_path = 'lonlat.csv'
+with open(loaction_path) as location:
+    print("reading " + loaction_path + " : ")
+    rows = csv.reader(location)
+    #跳過第一列
+    next(rows)
+    for i in rows:
+        print ("-----lon : " + i[0] + "-----lat : "+ i[1] +"-----")
+        lon = float(i[0])
+        lat = float(i[1])
+        #開始抓圖
+        auto_get_image(lon,lat)         
 
-lat = -17.2853 
-lon = -62.4593 
-auto_get_image(lon, lat)
+print("finish")
