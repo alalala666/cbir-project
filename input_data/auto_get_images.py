@@ -7,7 +7,19 @@ import cartopy.crs as ccrs
 from sqlalchemy import false, true
 import pandas as pd
 import csv
+import shutil
 geemap.ee_initialize()
+
+
+#先把舊檔案刪除
+fileTest = "C:/Users/alalala/Downloads/dataset"
+try:
+    shutil.rmtree(fileTest)
+except OSError as e:
+    print(e)
+else:
+    print("File is deleted successfully")
+
 
 #抓圖函數
 def auto_get_image(lat,lon):
