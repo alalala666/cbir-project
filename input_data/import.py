@@ -13,23 +13,14 @@ def auto_get_image(lat,lon):
         #經緯度要到小數點後面一點 
     lat = lat
     lon = lon
-    square = 0.3
-    #print(lon,lat)
+  
     #設定範圍
+    point = ee.Geometry.Point(lon,lat)
 
-    yMin = lat - square
-    xMin = lon - square
-    yMax = lat + square
-    xMax = lon + square
-
-    
-    rectangle = ee.Geometry.Rectangle(
-    [xMin, yMin, xMax, yMax]
-    )
 
     #設定時間
     start_year = 1984
-    end_year = 1986#2012
+    end_year = 1986 #應該是2012 改1986測比較快
     years = ee.List.sequence(start_year, end_year)
 
     #選圖片
@@ -38,7 +29,7 @@ def auto_get_image(lat,lon):
         end_date = ee.Date.fromYMD(year, 12, 31)
         image = (
             ee.ImageCollection("LANDSAT/LT05/C02/T1_TOA")
-            .filterBounds(rectangle)#設定範圍
+            .filterBounds(point)#設定範圍
             .filter(ee.Filter.calendarRange(1, 12, 'month'))#指定月份 1-12月
             .filterDate(start_date, end_date)
             .sort('CLOUD_COVER').first()#去雲
@@ -71,7 +62,7 @@ def auto_get_image(lat,lon):
 
     #設定路徑及資料夾名稱
     downloads_name = str(int(lon)) +","+ str(int(lat))
-    downloads_path = "~/Downloads/" + downloads_name
+    downloads_path = "~/Downloads/dataset/" + downloads_name
 
     #下載圖片 
     cartoee.get_image_collection_gif(

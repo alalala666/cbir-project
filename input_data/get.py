@@ -14,13 +14,8 @@ lon = -62.4593
 square = 0.3
 
 #設定範圍
-yMin = lat - square
-xMin = lon - square
-yMax = lat + square
-xMax = lon + square
-rectangle = ee.Geometry.Rectangle(
-  [xMin, yMin, xMax, yMax]
-)
+point = ee.Geometry.Point(lon,lat)
+
 
 #設定時間
 start_year = 1984
@@ -33,7 +28,7 @@ def get_best_image(year):
     end_date = ee.Date.fromYMD(year, 12, 31)
     image = (
         ee.ImageCollection("LANDSAT/LT05/C02/T1_TOA")
-        .filterBounds(rectangle)#設定範圍
+        .filterBounds(point)#設定範圍
         .filter(ee.Filter.calendarRange(1, 12, 'month'))#指定月份 1-12月
         .filterDate(start_date, end_date)
         .sort('CLOUD_COVER').first()#去雲
