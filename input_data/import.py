@@ -9,14 +9,14 @@ import pandas as pd
 import csv
 geemap.ee_initialize()
 
+#抓圖函數
 def auto_get_image(lat,lon):
-        #經緯度要到小數點後面一點 
+    #經緯度要到小數點後面一點 
     lat = lat
     lon = lon
   
     #設定範圍
     point = ee.Geometry.Point(lon,lat)
-
 
     #設定時間
     start_year = 1984
@@ -47,19 +47,12 @@ def auto_get_image(lat,lon):
     collection = ee.ImageCollection(years.map(get_best_image))
     image = ee.Image(collection.first())
 
-    
     #設定範圍
     w = 0.3
     h = 0.3
     region = [lon - w, lat - h, lon + w, lat + h]
 
-    #顯示圖片
-    # fig = plt.figure(figsize=(10, 7))
-    # ax = cartoee.get_map(image, region=region, vis_params=vis_params)
-    # plt.show()
-
     #下載圖片
-
     #設定路徑及資料夾名稱
     downloads_name = str(int(lon)) +","+ str(int(lat))
     downloads_path = "~/Downloads/dataset/" + downloads_name
