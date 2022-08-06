@@ -66,7 +66,7 @@ def auto_get_image(lon,lat):
 
     #設定路徑及資料夾名稱
     downloads_name = str(int(lon)) +","+ str(int(lat))
-    downloads_path = "~/Downloads/" + downloads_name
+    downloads_path = "~/Downloads/dataset/" + downloads_name
 
     #下載圖片 要用再解註
     cartoee.get_image_collection_gif(
