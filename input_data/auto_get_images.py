@@ -96,4 +96,4 @@ with open(loaction_path) as location:
         #開始抓圖
         auto_get_image(lon,lat)         
 
-print("finish")
+print("-------------finish-------------")
