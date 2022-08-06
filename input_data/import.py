@@ -81,7 +81,7 @@ def auto_get_image(lat,lon):
         )
 
 #讀取經緯度的csv檔案
-loaction_path = 'lonlat.csv'
+loaction_path = 'C:\git\中技社\input_data\lonlat.csv'
 with open(loaction_path) as location:
     print("reading " + loaction_path + " : ")
     rows = csv.reader(location)
