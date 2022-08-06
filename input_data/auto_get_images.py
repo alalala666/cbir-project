@@ -11,7 +11,7 @@ import shutil
 geemap.ee_initialize()
 
 
-#先把舊檔案刪除
+#先把舊檔案刪除 不用就註掉
 fileTest = "C:/Users/alalala/Downloads/dataset"
 try:
     shutil.rmtree(fileTest)
