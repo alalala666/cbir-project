@@ -3,8 +3,10 @@ import csv
 import shutil
 from get_images import auto_get_images_1984to2012,auto_get_images_2012to2022
 
-#先把舊檔案刪除 不用就註掉
+#輸入圖片路徑
 download_images_path = "C:/Users/alalala/Downloads/dataset/"
+
+#先把舊檔案刪除 不用就註掉
 try:
     shutil.rmtree(download_images_path)
 except OSError as e:
