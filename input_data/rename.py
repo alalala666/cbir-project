@@ -4,6 +4,7 @@ path=("C:/Users/alalala/Downloads/dataset/")
 entries = os.listdir(path)
 print("path = " + path)
 
+#單個資料夾
 def rename(pic_path):
     entries = os.listdir(pic_path)
     for i in entries:
@@ -15,9 +16,7 @@ def rename(pic_path):
         os.rename(old_name, new_name)
     print("----------rename pic_path = " + pic_path +" ----------") 
 
-for filename in os.listdir(path):
-    rename(path + filename +"/")
-
+#全部的資料夾
 def rename_all(path):
     for filename in os.listdir(path):
         rename(path + filename +"/")

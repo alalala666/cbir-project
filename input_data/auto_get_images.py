@@ -12,8 +12,7 @@ geemap.ee_initialize()
 
 #抓圖函數 這兩個內容大致是一樣的 差在資料集不一樣
 def auto_get_images_1984to2012(lon,lat):
-
-
+    
     #經緯度要到小數點後面一點 
     lat = lat
     lon = lon
@@ -152,7 +151,8 @@ with open(loaction_path) as location:
         auto_get_images_1984to2012(lon,lat)
         auto_get_images_2012to2022(lon,lat)         
 
+#重新命名
 from rename import rename_all
 rename_all(download_images_path + "/")
-
+ 
 print("-------------finish-------------")
