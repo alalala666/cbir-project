@@ -129,9 +129,9 @@ def auto_get_images_2012to2022(lon,lat):
         )
 
 #先把舊檔案刪除 不用就註掉
-fileTest = "C:/Users/alalala/Downloads/dataset"
+download_images_path = "C:/Users/alalala/Downloads/dataset"
 try:
-    shutil.rmtree(fileTest)
+    shutil.rmtree(download_images_path)
 except OSError as e:
     print(e)
 else:
@@ -151,5 +151,8 @@ with open(loaction_path) as location:
         #開始抓圖
         auto_get_images_1984to2012(lon,lat)
         auto_get_images_2012to2022(lon,lat)         
+
+from rename import rename_all
+rename_all(download_images_path + "/")
 
 print("-------------finish-------------")

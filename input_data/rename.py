@@ -18,4 +18,8 @@ def rename(pic_path):
 for filename in os.listdir(path):
     rename(path + filename +"/")
 
+def rename_all(path):
+    for filename in os.listdir(path):
+        rename(path + filename +"/")
+
 print("------all finish-------")      
