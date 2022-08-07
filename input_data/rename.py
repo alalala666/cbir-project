@@ -3,6 +3,7 @@ import os
 # path=("要重新命名的資料夾") 
 # entries = os.listdir(path)
 # print("path = " + path)
+
 #單個資料夾
 def rename(pic_path):
     entries = os.listdir(pic_path)
