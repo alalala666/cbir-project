@@ -1,20 +1,21 @@
-from PIL import Image
 import os
 
-path=("C:/Users/alalala/Downloads/dataset/139,35/") 
+path=("C:/Users/alalala/Downloads/dataset/") 
 entries = os.listdir(path)
 print("path = " + path)
-pic_name = path[35::]
-pic_name = pic_name[:-1]
-print(pic_name)
 
-def rename(path):
+def rename(pic_path):
+    entries = os.listdir(pic_path)
     for i in entries:
         if(i[-3:] != 'png'):
             continue
-        old_name = path + i
-        new_name = path + (old_name[-12:])[:4] + ".jpg"
+        old_name = pic_path + i
+        new_name = pic_path + (old_name[-12:])[:4] + ".jpg"
         print(new_name)
         os.rename(old_name, new_name)
+    print("----------rename pic_path = " + pic_path +" ----------") 
 
-rename(path)
+for filename in os.listdir(path):
+    rename(path + filename +"/")
+
+print("------all finish-------")      
