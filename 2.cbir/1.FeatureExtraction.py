@@ -12,8 +12,8 @@ import time
 from extract_cnn_keras import DenseNet, VGGNet
 
 #輸入圖片資料夾路徑
-#path = 'C:/Users/alalala/Downloads/dataset/-62,-17/'
-path = 'C:/Users/alalala/Downloads/dataset/all/'
+path = 'C:/Users/alalala/Downloads/dataset/-62,-17/'
+#path = 'C:/Users/alalala/Downloads/dataset/all/'
 
 def parse_opt():
     parser = argparse.ArgumentParser()

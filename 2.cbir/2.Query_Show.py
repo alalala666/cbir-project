@@ -116,8 +116,8 @@ while True:
         # 显示多张图片
 
         for i,im in enumerate(imlist):
-            #image = mpimg.imread("C:/Users/alalala/Downloads/dataset/-62,-17/" + str(im, 'utf-8'))
-            image = mpimg.imread("C:/Users/alalala/Downloads/dataset/all/" + str(im, 'utf-8'))
+            image = mpimg.imread("C:/Users/alalala/Downloads/dataset/-62,-17/" + str(im, 'utf-8'))
+            #image = mpimg.imread("C:/Users/alalala/Downloads/dataset/all/" + str(im, 'utf-8'))
             print(i, im)
             #im_name = str(im).split('/')[1]
             Year = str(im).split('.')[0]
