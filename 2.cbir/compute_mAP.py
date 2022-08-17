@@ -10,6 +10,7 @@ from keras.preprocessing import image
 from numpy import linalg as LA
 from extract_cnn_keras import DenseNet169
 
+
 import numpy as np
 import h5py
 import os
