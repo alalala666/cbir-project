@@ -1,7 +1,6 @@
 {% extends "_base.html" %}
 
 {% block content %}
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,54 +8,34 @@
     <title>My test page</title>
   </head>
   <body>
-    <h1>這請輸入經緯度或選取以下照片</h1>
+    <h1>可以輸入經緯度、自行輸入圖片或選取以下照片</h1>
     <input placeholder="輸入經度" style="width:500px; height:30px;" />
     <input placeholder="輸入經度" style="width:500px; height:30px;" />
     <br>
     <br>
     <br>
     <br>
-   
+    <div>
+      <center><p><input type="file" id="input" class="input"></p></center>
+    </div>
+    
+    
+        
     <tr>
-        <td><input type="image"
-            src="\static\image\11.png"
-            alt="Login"
-             width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\22.png"
-            alt="Login"
-             width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\33.png"
-            alt="Login"
-             width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\44.png"
-            alt="Login"
-             width="275" height="300"></td>
+      <td><img src="\static\image\11.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\22.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\33.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\44.png" style="height: 300px;" class="img"></td>
+    </tr>
+    <tr>
+      <td><img src="\static\image\555.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\66.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\77.png" style="height: 300px;" class="img"></td>
+      <td><img src="\static\image\88.png" style="height: 300px;" class="img"></td>
     </tr>
 
-    <br>
-    <tr>
-        <td><input type="image"
-            src="\static\image\555.png"
-            alt="Login"
-            width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\66.png"
-            alt="Login"
-             width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\77.png"
-            alt="Login"
-             width="275" height="300"></td>
-        <td><input type="image"
-            src="\static\image\88.png"
-            alt="Login"
-             width="275" height="300"></td>
-    </tr>
-
+  
   </body>
 </html>
-
+{% endblock %}
 
