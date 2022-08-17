@@ -4,6 +4,7 @@ from tkinter.font import names
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 os.environ['TF_CPP_MIN_LOG_level'] = '2'
 
+
 # -*- coding: utf-8 -*-
 import h5py
 import numpy as np
@@ -12,7 +13,8 @@ import time
 from extract_cnn_keras import DenseNet, VGGNet
 
 #輸入圖片資料夾路徑
-path = 'C:/Users/alalala\Downloads\dataset\-62,-17/'
+path = 'C:/Users/alalala/Downloads/dataset/-62,-17/'
+#path = 'C:/Users/alalala/Downloads/dataset/all/'
 
 def parse_opt():
     parser = argparse.ArgumentParser()

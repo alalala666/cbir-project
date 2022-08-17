@@ -6,6 +6,7 @@ os.environ['TF_CPP_MIN_LOG_level'] = '2'
 # Author: yongyuan.name
 
 #from matplotlib.font_manager import _Weight
+
 import numpy as np
 from numpy import linalg as LA
 
@@ -13,6 +14,10 @@ from keras.applications.vgg16 import VGG16, preprocess_input
 from keras.applications.efficientnet import  preprocess_input
 from keras.applications.densenet import DenseNet169, preprocess_input
 from keras.preprocessing import image
+
+#from tensorflow.keras.utils import load_img, img_to_array
+import keras
+import tensorflow as tf
 
 class VGGNet:
     def __init__(self):

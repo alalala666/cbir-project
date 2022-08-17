@@ -36,7 +36,7 @@ args = vars(ap.parse_args())
 
 
 # read in indexed images' feature vectors and corresponding image names
-h5f = h5py.File('C:\cbir\cbir-project\/featureCNN.h5','r')
+h5f = h5py.File('featureCNN.h5','r')
 # feats = h5f['dataset_1'][:]
 feats = h5f['feats'][:]
 print(feats)
@@ -117,6 +117,7 @@ while True:
 
         for i,im in enumerate(imlist):
             image = mpimg.imread("C:/Users/alalala/Downloads/dataset/-62,-17/" + str(im, 'utf-8'))
+            #image = mpimg.imread("C:/Users/alalala/Downloads/dataset/all/" + str(im, 'utf-8'))
             print(i, im)
             #im_name = str(im).split('/')[1]
             Year = str(im).split('.')[0]
@@ -129,3 +130,5 @@ while True:
             ax[int((i+1)/SqureShow)][(i+1)%SqureShow].imshow(image,cmap=plt.cm.gray)
             ax[int((i+1)/SqureShow)][(i+1)%SqureShow].axis('off')
         plt.show()
+
+    
