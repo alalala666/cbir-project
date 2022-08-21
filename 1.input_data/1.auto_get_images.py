@@ -7,12 +7,12 @@ from get_images import auto_get_images_1984to2012,auto_get_images_2012to2022
 download_images_path = "C:/Users/alalala/Downloads/dataset/"
 
 #先把舊檔案刪除 不用就註掉
-try:
-    shutil.rmtree(download_images_path)
-except OSError as e:
-    print(e)
-else:
-    print("File is deleted successfully")
+# try:
+#     shutil.rmtree(download_images_path)
+# except OSError as e:
+#     print(e)
+# else:
+#     print("File is deleted successfully")
 
 #讀取經緯度的csv檔案
 loaction_path = '1.input_data\lonlat.csv'
