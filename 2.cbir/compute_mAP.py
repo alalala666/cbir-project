@@ -15,12 +15,23 @@ import argparse
 import time
 import csv
 
+#設定路徑
+h5_path="2.cbir/featureCNN.h5"
+mAP_database_path="2.cbir/mAP_database/"
+queryImgs_path="2.cbir\queryImgs.txt"
+databaseClasses_path="2.cbir\databaseClasses.txt"
+ResultTop = "2.cbir/ResultTop-20_EfficientNetV2L.csv"
+#設定模型
+#model = VGGNet()
+model = DenseNet()
+
+
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-index", type=str, default='featureCNN.h5' , help="Path to index")
-    parser.add_argument("-bathPath", type=str, default='2.cbir/database/' , help="bath_path")
-    parser.add_argument("-queryFile", type=str, default='queryImgs.txt' , help="queryFile")
-    parser.add_argument("-classesFile", type=str, default='databaseClasses.txt' , help="classesFile")
+    parser.add_argument("-index", type=str, default=h5_path , help="Path to index")
+    parser.add_argument("-bathPath", type=str, default=mAP_database_path , help="bath_path")
+    parser.add_argument("-queryFile", type=str, default=queryImgs_path , help="queryFile")
+    parser.add_argument("-classesFile", type=str, default=databaseClasses_path , help="classesFile")
     parser.add_argument("-topk", type=int, default=20, help='topK')
     parser.add_argument("-gpu", type=str, default="5", help='which gpu to use| set "" if use cpu')
     args = parser.parse_args()
@@ -34,9 +45,7 @@ if __name__ == "__main__":
     # init VGGNet16 model
     #model = DenseNet(weights='imagenet', input_shape = (224, 224, 3), pooling = 'max', include_top = False)
     
-    
-    model = VGGNet()
-    #model = DenseNet()
+  
     #model = EfficientNetV2L(weights='imagenet', input_shape = (224, 224, 3), pooling = 'max', include_top = False)
     start_time = time.time()
     h5f = h5py.File(opt.index, 'r')
@@ -108,7 +117,7 @@ if __name__ == "__main__":
         cost_time = time.time() - start
         print('queryName: {} ap: {} Time:{:.3f} (s)'.format(queryImgs[i],ap[i],cost_time))
         QueryResult=list()
-        with open("ResultTop-20_EfficientNetV2L.csv", 'a+',newline='',encoding='utf-8') as Result:
+        with open(ResultTop, 'a+',newline='',encoding='utf-8') as Result:
             writer = csv.writer(Result)
             QueryResult.append(queryImgs[i])
             QueryResult.append(ap[i])

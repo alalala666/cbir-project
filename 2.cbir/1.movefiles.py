@@ -10,13 +10,16 @@ import shutil
 import random
 import math
 
+#路徑設置
+new_path = "2.cbir\mAP_database"#新路徑
+img_path = "C:/git/cbir-project/2.cbir/dataset/"#原始資料
+databaseClasses = "2.cbir\databaseClasses.txt"
+queryImgs = "2.cbir\queryImgs.txt"
+
+
 query_number_percent = 0.2 # 设置每类拿百分之多少出来作为查询
 
-img_path = "2.cbir\datset"
-new_path = "2.cbir\database"
-
 directory = new_path  # 设置新路径
-databaseClasses = 'dataset'
 
 if not os.path.exists(directory):
     os.makedirs(directory)
@@ -24,10 +27,10 @@ if not os.path.exists(directory):
 newImgDBPath = os.path.abspath(directory)
 
 # walk through the folder
-f = open("./databaseClasses.txt", "w")
-g = open("./queryImgs.txt", "w")
+f = open(databaseClasses, "w")
+g = open(queryImgs,"w")
 
-for root, dirs, files in os.walk(r"C:/git/cbir-project/2.cbir/dataset/"):
+for root, dirs, files in os.walk(img_path):
     print(dirs)
 
     for i, str_each_folder in enumerate(dirs):

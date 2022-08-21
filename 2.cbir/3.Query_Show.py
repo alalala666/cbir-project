@@ -36,8 +36,14 @@ ap = argparse.ArgumentParser()
 
 # read in indexed images' feature vectors and corresponding image names
 
+#設定路徑
+img_path = "2.cbir/mAP_database/"
+h5_path = "2.cbir/featureCNN.h5"
+#設定模型
+#model = VGGNet()
+model = DenseNet()
 
-h5f= h5py.File('C:/git/cbir-project/featureCNN.h5','r')
+h5f= h5py.File(h5_path,'r')
 # feats = h5f['dataset_1'][:]
 feats = h5f['feats'][:]
 print(feats)
@@ -91,12 +97,11 @@ while True:
         #plt.show()
 
 
-        #model = VGGNet()
-        model = DenseNet()
+        
         queryVec = model.extract_feat(queryDir)
         #queryVec = model.extract_feat(queryDir)
 
-        #若出現以下錯誤 代表跟1.FeatureExtraction設的model不一樣
+        #若出現以下錯誤 代表跟FeatureExtraction設的model不一樣
         # Traceback (most recent call last):
         #   File "c:\git\cbir-project\2.cbir\compute_mAP", line 86, in <module>
         #     scores = np.dot(queryFeat, feats.T)
@@ -124,7 +129,7 @@ while True:
         # 显示多张图片
 
         for i,im in enumerate(imlist):
-            image = mpimg.imread("2.cbir/database/" + str(im, 'utf-8'))
+            image = mpimg.imread(img_path + str(im, 'utf-8'))
             #image = mpimg.imread("C:/Users/alalala/Downloads/dataset/all/" + str(im, 'utf-8'))
             print(i, im)
             #im_name = str(im).split('/')[1]

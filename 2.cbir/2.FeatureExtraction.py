@@ -4,7 +4,6 @@ from tkinter.font import names
 os.environ["KMP_DUPLICATE_LIB_OK"]="TRUE"
 os.environ['TF_CPP_MIN_LOG_level'] = '2'
 
-
 # -*- coding: utf-8 -*-
 import h5py
 import numpy as np
@@ -12,15 +11,20 @@ import argparse
 import time
 from extract_cnn_keras import DenseNet, VGGNet
 
-#輸入圖片資料夾路徑
-path = '2.cbir\database'
-#path = 'C:/Users/alalala/Downloads/dataset/all/'
+#路徑設置
+img_path = '2.cbir\mAP_database'#1後的結果設為輸入圖片資料夾路徑
+h5_path = "2.cbir/featureCNN.h5"
+
+#設定模型
+#model = VGGNet()
+model = DenseNet()
+    
 
 def parse_opt():
     parser = argparse.ArgumentParser()
-    parser.add_argument("-database", type=str, default=path, help="Path to database which contains images to be indexed")
+    parser.add_argument("-database", type=str, default=img_path, help="Path to database which contains images to be indexed")
     # parser.add_argument("-database", type=str, default='./web-server/static/Caltech256', help="Path to database which contains images to be indexed")
-    parser.add_argument("-index", type=str, default='featureCNN.h5', help="Name of index file")
+    parser.add_argument("-index", type=str, default=h5_path, help="Name of index file")#自動產生h5
 
     args = parser.parse_args()
 
@@ -45,10 +49,6 @@ if __name__ == "__main__":
     feats = []
     names = []
 
-    #帶入模型
-    model = VGGNet()
-    #model = DenseNet()
-    
 
     print("--------------------------------------------------")
     print("         feature extraction starts")
