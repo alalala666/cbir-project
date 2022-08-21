@@ -4,7 +4,6 @@ var data = [];
 
 // image click
 $(".img").click(function() {
-
     // empty/hide results
     $("#results").empty();
     $("#results-table").hide();
@@ -20,7 +19,8 @@ $(".img").click(function() {
     var image = $(this).attr("src")
     console.log(image)
     //alert(image)
-    alert("start searching...")
+    //alert("start searching...")
+  
     // show searching text
     $("#searching").empty();
     $("#searching").append('Searching...');

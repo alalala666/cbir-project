@@ -27,16 +27,17 @@ ap = argparse.ArgumentParser()
 # ap.add_argument("-result", required = False,default='lace',
 # 	help = "Path for output retrieved images")
 # 总数据
-ap.add_argument("-index", required = False,default='CNNFeature.h5',
-	help = "Path to index")
-ap.add_argument("-result", required = False,default='database',
-	help = "Path for output retrieved images")
+# ap.add_argument("-index", required = False,default='CNNFeature.h5',
+# 	help = "Path to index")
+# ap.add_argument("-result", required = False,default='database',
+# 	help = "Path for output retrieved images")
 
-args = vars(ap.parse_args())
-
+# args = vars(ap.parse_args())
 
 # read in indexed images' feature vectors and corresponding image names
-h5f = h5py.File('featureCNN.h5','r')
+
+
+h5f= h5py.File('C:/git/cbir-project/featureCNN.h5','r')
 # feats = h5f['dataset_1'][:]
 feats = h5f['feats'][:]
 print(feats)
@@ -89,11 +90,18 @@ while True:
         #plt.imshow(queryImg)
         #plt.show()
 
+
         #model = VGGNet()
         model = DenseNet()
-
         queryVec = model.extract_feat(queryDir)
         #queryVec = model.extract_feat(queryDir)
+
+        #若出現以下錯誤 代表跟1.FeatureExtraction設的model不一樣
+        # Traceback (most recent call last):
+        #   File "c:\git\cbir-project\2.cbir\compute_mAP", line 86, in <module>
+        #     scores = np.dot(queryFeat, feats.T)
+        #   File "<__array_function__ internals>", line 5, in dot
+        # ValueError: shapes (512,) and (1664,192) not aligned: 512 (dim 0) != 1664 (dim 0)
         scores = np.dot(queryVec, feats.T)
         rank_ID = np.argsort(scores)[::-1]
         rank_score = scores[rank_ID]
@@ -116,7 +124,7 @@ while True:
         # 显示多张图片
 
         for i,im in enumerate(imlist):
-            image = mpimg.imread("C:/Users/alalala/Downloads/dataset/-62,-17/" + str(im, 'utf-8'))
+            image = mpimg.imread("2.cbir/database/" + str(im, 'utf-8'))
             #image = mpimg.imread("C:/Users/alalala/Downloads/dataset/all/" + str(im, 'utf-8'))
             print(i, im)
             #im_name = str(im).split('/')[1]

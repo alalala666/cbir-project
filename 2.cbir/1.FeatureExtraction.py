@@ -13,7 +13,7 @@ import time
 from extract_cnn_keras import DenseNet, VGGNet
 
 #輸入圖片資料夾路徑
-path = 'C:/Users/alalala/Downloads/dataset/-62,-17/'
+path = '2.cbir\database'
 #path = 'C:/Users/alalala/Downloads/dataset/all/'
 
 def parse_opt():
@@ -46,8 +46,8 @@ if __name__ == "__main__":
     names = []
 
     #帶入模型
-    #model = VGGNet()
-    model = DenseNet()
+    model = VGGNet()
+    #model = DenseNet()
     
 
     print("--------------------------------------------------")
