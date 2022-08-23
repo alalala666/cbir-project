@@ -13,6 +13,7 @@ from extract_cnn_keras import DenseNet, VGGNet
 
 #路徑設置
 img_path = '2.cbir\mAP_database'#1後的結果設為輸入圖片資料夾路徑
+img_path = "2.cbir/dataset/-62,-17/"
 h5_path = "2.cbir/featureCNN.h5"
 
 #設定模型

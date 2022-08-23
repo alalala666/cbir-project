@@ -66,8 +66,8 @@ def auto_get_images_1984to2012(lon,lat,path):
         vis_params=vis_params,
         region=region,#選取範圍
         fps=3,
-        plot_title=" ",
-        date_format='YYYY-MM-dd',
+        #plot_title=" ",
+        #date_format='YYYY-MM-dd',
         fig_size=(10, 8),
         dpi_plot=100,
         file_format="png",
@@ -119,18 +119,18 @@ def auto_get_images_2012to2022(lon,lat,path):
         vis_params=vis_params,
         region=region,#選取範圍
         fps=3,
-        plot_title=" ",
-        date_format='YYYY-MM-dd',
+        #plot_title=" ",
+        #date_format='YYYY-MM-dd',
         fig_size=(10, 8),
         dpi_plot=100,
         file_format="png",
         verbose=True,
         )
 
-path = "C:/Users/alalala/Downloads/dataset/"
+path = "C:/git/cbir-project/2.cbir/dataset/-62,-17/"
 lon = -62.4953
 lat = -17.2853
 
-#auto_get_images_1984to2012(lon, lat,path)
-#auto_get_images_2012to2022(lon, lat, path)
+auto_get_images_1984to2012(lon, lat,path)
+auto_get_images_2012to2022(lon, lat, path)
 print("finish")

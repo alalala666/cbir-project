@@ -1,13 +1,4 @@
-import numpy as np
-from numpy import linalg as LA
-
 from extract_cnn_keras import VGGNet,DenseNet
-from keras.applications.vgg16 import VGG16, preprocess_input
-from keras.applications.efficientnet import  preprocess_input
-from keras.applications.densenet import DenseNet169, preprocess_input
-from keras.preprocessing import image
-
-
 import numpy as np
 import h5py
 import os

@@ -10,11 +10,9 @@ os.environ['TF_CPP_MIN_LOG_level'] = '2'
 from extract_cnn_keras import VGGNet,DenseNet
 from keras.preprocessing import image
 from numpy import linalg as LA
-
 import numpy as np
 import h5py
 from matplotlib import pyplot as plt
-#import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 import argparse
 
@@ -38,6 +36,7 @@ ap = argparse.ArgumentParser()
 
 #設定路徑
 img_path = "2.cbir/mAP_database/"
+img_path = "2.cbir/dataset/-62,-17/"
 h5_path = "2.cbir/featureCNN.h5"
 #設定模型
 #model = VGGNet()
@@ -84,19 +83,20 @@ while True:
         # 设置多张图片共同显示
         SqureShow = 4
         figure,ax=plt.subplots(SqureShow,SqureShow)
+        figure.set_facecolor("none")
+       
         global index_t
         index_t = 1
         queryDir = url_is_correct(index_t)
         queryImg = mpimg.imread(queryDir)
         x=0
-        ax[x][x].set_title('QueryImage',fontsize=10, fontname="Times New Roman Bold")
+        ax[x][x].set_title('QueryImage',fontsize=10 ,color= 'white')
         ax[x][x].imshow(queryImg,cmap=plt.cm.gray)
         ax[x][x].axis('off') # 显示第一张测试图片
         #plt.title("Query Image")
         #plt.imshow(queryImg)
         #plt.show()
-
-
+        
         
         queryVec = model.extract_feat(queryDir)
         #queryVec = model.extract_feat(queryDir)
@@ -118,7 +118,7 @@ while True:
         maxres = SqureShow*SqureShow-1
         imlist = [imgNames[index] for i,index in enumerate(rank_ID[0:maxres])]
         print("top %d images in order are: " %maxres, imlist)
-
+        
         # # show top #maxres retrieved result one by one
         # for i,im in enumerate(imlist):
         #     image = mpimg.imread(args["result"]+"/"+str(im, 'utf-8'))
@@ -138,10 +138,14 @@ while True:
             # Page = int(str(im_name).split('_')[2][-1])+1
             # ShowName = Year + '_' + Issue + '_' + str(Page)
             ShowName = Year
-            ax[int((i+1)/SqureShow)][(i+1)%SqureShow].set_title('%d:%s(%.3f)' % (i+1,ShowName,rank_score[i]),fontsize=10)
+
+            ax[int((i+1)/SqureShow)][(i+1)%SqureShow].set_title('%d:%s(%.3f)' % (i+1,ShowName,rank_score[i]),fontsize=10 ,color= 'white')
             #ax[int(i/maxres)][i%maxres].set_title('Image_name is %s' % im,fontsize=2)
             ax[int((i+1)/SqureShow)][(i+1)%SqureShow].imshow(image,cmap=plt.cm.gray)
             ax[int((i+1)/SqureShow)][(i+1)%SqureShow].axis('off')
+            
+               
+        
         plt.show()
 
     

@@ -21,6 +21,6 @@ def rename_all(path):
     for filename in os.listdir(path):
         rename(path + filename +"/")
 
-rename_all("C:/git/cbir-project/2.cbir/dataset/")
-
+#rename_all("C:/git/cbir-project/2.cbir/dataset/")
+rename("C:\git\cbir-project/2.cbir\dataset\-62,-17\-62,-17/")
 print("------all finish-------")      
