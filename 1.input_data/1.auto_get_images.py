@@ -4,7 +4,7 @@ import shutil
 from get_images import auto_get_images_1984to2012,auto_get_images_2012to2022
 
 #輸入圖片路徑
-download_images_path = "C:/Users/alalala/Downloads/dataset/"
+download_images_path = "C:/git/cbir-project/2.cbir/dataset/"
 
 #先把舊檔案刪除 不用就註掉
 # try:
@@ -15,12 +15,11 @@ download_images_path = "C:/Users/alalala/Downloads/dataset/"
 #     print("File is deleted successfully")
 
 #讀取經緯度的csv檔案
-loaction_path = '1.input_data\lonlat.csv'
+loaction_path = '1.input_data/lonlat.csv'
 with open(loaction_path) as location:
     print("reading " + loaction_path + " : ")
     rows = csv.reader(location)
     #跳過第一列
-    next(rows)
     next(rows)
 
     for i in rows:

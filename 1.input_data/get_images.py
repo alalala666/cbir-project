@@ -127,10 +127,10 @@ def auto_get_images_2012to2022(lon,lat,path):
         verbose=True,
         )
 
-path = "C:/git/cbir-project/2.cbir/dataset/-62,-17/"
-lon = -62.4953
-lat = -17.2853
+# path = "C:/git/cbir-project/2.cbir/dataset/-62,-17/"
+# lon = -62.4953
+# lat = -17.2853
 
-auto_get_images_1984to2012(lon, lat,path)
-auto_get_images_2012to2022(lon, lat, path)
+# auto_get_images_1984to2012(lon, lat,path)
+# auto_get_images_2012to2022(lon, lat, path)
 print("finish")
