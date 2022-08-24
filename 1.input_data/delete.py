@@ -1,4 +1,5 @@
 #coding=utf-8
+#刪除空的資料夾
 import os
 def del_emp_dir(path):
   for (root,dirs,files) in os.walk(path):
