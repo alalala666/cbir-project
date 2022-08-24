@@ -10,9 +10,10 @@ download_images_path = "C:/git/cbir-project/2.cbir/dataset/"
 # try:
 #     shutil.rmtree(download_images_path)
 # except OSError as e:
-#     print(e)
+#     print(e)  
 # else:
 #     print("File is deleted successfully")
+
 
 #讀取經緯度的csv檔案
 loaction_path = '1.input_data/lonlat.csv'
@@ -35,8 +36,9 @@ with open(loaction_path) as location:
             del_emp_dir(download_images_path)
             continue       
 
+
 #重新命名
 from rename import rename_all
-#rename_all(download_images_path)
+rename_all(download_images_path)
 
 print("-------------finish-------------")

@@ -36,7 +36,6 @@ ap = argparse.ArgumentParser()
 
 #設定路徑
 img_path = "2.cbir/mAP_database/"
-img_path = "2.cbir/dataset/-62,-17/"
 h5_path = "2.cbir/featureCNN.h5"
 #設定模型
 #model = VGGNet()

@@ -43,7 +43,7 @@ for root, dirs, files in os.walk(img_path):
         # list all the files using directory path
         for ind, str_each_file in enumerate(os.listdir(str_the_path)):
             # now add the new one
-            str_new_name = '{0:03}'.format(i+1) +'_'+ str_each_folder + '_' + str_each_file
+            str_new_name = '{0:3}'.format(i+1) +'_'+ str_each_folder + '_' + str_each_file
             if ind in index:
                 g.writelines('%s\n' % str_new_name)
                 # full path for both files
@@ -56,7 +56,7 @@ for root, dirs, files in os.walk(img_path):
 
         #  we can print the folder name so we know that all files in the folder are done
         print('%s, %d images' % (str_each_folder, files_number))
-        f.writelines('%s %d\n' % ('{0:03}'.format(i+1)+'_'+str_each_folder, files_number))
+        f.writelines('%s %d\n' % ('{0:3}'.format(i+1)+'_'+str_each_folder, files_number))
     
     
 

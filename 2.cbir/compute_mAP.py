@@ -8,7 +8,7 @@ import csv
 
 #設定路徑
 h5_path="2.cbir/featureCNN.h5"
-mAP_database_path="2.cbir/dataset/-62,-17/"
+mAP_database_path= "2.cbir/mAP_database/"
 queryImgs_path="2.cbir\queryImgs.txt"
 databaseClasses_path="2.cbir\databaseClasses.txt"
 ResultTop = "2.cbir/ResultTop-20_EfficientNetV2L.csv"
