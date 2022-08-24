@@ -12,7 +12,7 @@ import math
 
 #路徑設置
 new_path = "2.cbir\mAP_database"#新路徑
-img_path = "C:/git/cbir-project/2.cbir/dataset/"#原始資料
+img_path = "C:/git/cbir-project/2.cbir/dataset"#原始資料
 databaseClasses = "2.cbir\databaseClasses.txt"
 queryImgs = "2.cbir\queryImgs.txt"
 

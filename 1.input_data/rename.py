@@ -14,7 +14,7 @@ def rename(pic_path):
         new_name = pic_path + (old_name[-12:])[:4] + ".jpg"
         print(new_name)
         os.rename(old_name, new_name)
-    print("----------rename pic_path = " + pic_path +" ----------") 
+    print("----------rename pic_path = " + pic_path +" ----------")
 
 #全部的資料夾
 def rename_all(path):
