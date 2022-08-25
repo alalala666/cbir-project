@@ -16,7 +16,6 @@ download_images_path = "C:/git/cbir-project/1.input_data/dataset/"
 # else:
 #     print("File is deleted successfully")
 
-
 #讀取經緯度的csv檔案
 loaction_path = '1.input_data/lonlat.csv'
 with open(loaction_path) as location:
